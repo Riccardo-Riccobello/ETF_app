@@ -4,5 +4,5 @@ plotly
 alpaca-py
 pandas
 numpy
-os
 gunicorn
+
