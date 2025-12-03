@@ -48,11 +48,12 @@ Ci sono stati periodi negativi (es. crisi 2008), ma nel lungo termine la pazienz
 
 ✅ **Regole del Gioco**
 
-€500 per ciascuno (Marti, Gio, Eli) investiti oggi
-Orizzonte: 25 anni (fino al 2051)
-Svincolo ogni 5 anni (es. Natale 2031)
-Per monitorare: cercate VWCE o ISIN IE00BK5BQT80 su Google
-Calcolo: prezzo × 3,5 (quote)
+- €500 per ciascuno (Marti, Gio, Eli) investiti oggi
+- Orizzonte: 25 anni (fino al 2051)
+- Svincolo ogni 5 anni (es. Natale 2031)
+- Per monitorare: cercate VWCE o ISIN IE00BK5BQT80 su Google
+- Calcolo: prezzo × 3,5 (quote)
+- Ho creato per voi anche una app python raggiungibile da sito web: https://etf-app.onrender.com/
 
 
 🎅 **Auguri!**
