@@ -10,10 +10,12 @@ from dash.dependencies import Input, Output
 import plotly.express as px
 from datetime import datetime
 import dash_bootstrap_components as dbc
+import os
 
 # Alpaca API credentials
-API_KEY = "PKARX3TM5DIJ5BRBEAYUH5S5PE"
-SECRET_KEY = "EUqSY4zXbeCdW7HdUL7DKuHdKWpErsBoirsJ4aEpRRbW"
+API_KEY = os.getenv("API_KEY")
+SECRET_KEY = os.getenv("SECRET_KEY")
+
 
 # Initialize Alpaca client
 client = StockHistoricalDataClient(API_KEY, SECRET_KEY)
@@ -140,3 +142,4 @@ def update_chart(n_clicks, etf_symbol, start_date, investment):
 
 if __name__ == '__main__':
     app.run(debug=True)
+
