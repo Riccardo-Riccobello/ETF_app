@@ -31,7 +31,8 @@ Acquistandolo, investite in un paniere di titoli globali, non in una singola azi
 📈 **Esempio Storico**
 
 Se avessi investito €500 nel dicembre 2003 e li avessi lasciati fino a giugno 2024:
--Valore finale: €2764
+
+- Valore finale: €2764
 - Crescita: +600%
 - CAGR medio: +9% annuo
 
