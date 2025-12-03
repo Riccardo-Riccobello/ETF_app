@@ -12,10 +12,9 @@ from datetime import datetime
 import dash_bootstrap_components as dbc
 import os
 
-# Alpaca API credentials
+# ✅ Secure API credentials from environment variables
 API_KEY = os.getenv("API_KEY")
 SECRET_KEY = os.getenv("SECRET_KEY")
-
 
 # Initialize Alpaca client
 client = StockHistoricalDataClient(API_KEY, SECRET_KEY)
@@ -28,7 +27,7 @@ ETF_OPTIONS = {
     "SPGM": "SPDR Portfolio MSCI Global Stock Market ETF"
 }
 
-DEFAULT_INVESTMENT = 585.0
+DEFAULT_INVESTMENT = 600.0
 DEFAULT_START_DATE = "2025-01-01"
 
 # Fetch ETF data
@@ -38,7 +37,7 @@ def fetch_etf_data(symbol, start_date):
         timeframe=TimeFrame.Day,
         start=datetime.strptime(start_date, "%Y-%m-%d"),
         end=datetime.now(),
-        feed='iex'
+        feed='iex'  # Free tier feed
     )
     bars = client.get_stock_bars(request_params)
     data = bars.df.reset_index()
@@ -68,10 +67,11 @@ def calculate_metrics(data):
         "Max Drawdown (%)": round(max_drawdown, 2)
     }
 
-# Dash app with Bootstrap
+# ✅ Initialize Dash app with Bootstrap theme
 app = dash.Dash(__name__, external_stylesheets=[dbc.themes.FLATLY])
 app.title = "ETF Investment Simulator"
 
+# ✅ Responsive Layout
 app.layout = dbc.Container([
     html.H2("🌍 Global ETF Investment Simulator", className="text-center mt-4 mb-4"),
     
@@ -95,16 +95,17 @@ app.layout = dbc.Container([
                     
                     dbc.Button("Simulate", id='simulate-button', color="primary", className="w-100")
                 ])
-            ], className="shadow-sm")
-        ], width=4),
+            ], className="shadow-sm mb-4")
+        ], width=12, lg=4),  # Full width on mobile, 4 columns on large screens
         
         dbc.Col([
-            dcc.Graph(id='simulation-chart', style={"height": "60vh"}),
+            dcc.Graph(id='simulation-chart', style={"height": "60vh", "width": "100%"}),
             html.Div(id='metrics-output', className="mt-4")
-        ], width=8)
+        ], width=12, lg=8)
     ], className="mt-4")
 ], fluid=True)
 
+# ✅ Callback for chart and metrics
 @app.callback(
     [Output('simulation-chart', 'figure'),
      Output('metrics-output', 'children')],
@@ -142,4 +143,3 @@ def update_chart(n_clicks, etf_symbol, start_date, investment):
 
 if __name__ == '__main__':
     app.run(debug=True)
-
